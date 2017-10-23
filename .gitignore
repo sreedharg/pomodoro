@@ -1,0 +1,5 @@
+build/*
+dist/*
+__pycache__/pom.cpython-36.pyc
+pom.spec
+pomodoro.log
