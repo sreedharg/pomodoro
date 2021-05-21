@@ -32,7 +32,7 @@ class Pomodoro(object):
         LOGGER.addHandler(fh)
 
     def _display_status(self):
-        os.system('cls')
+        os.system('clear')
         print('\n\n\n         Busy with - ' + self.current_item)
         print('\n\n\n         [', end='')
         print((25 - self.time_left) * '*' , end='' )
@@ -40,7 +40,7 @@ class Pomodoro(object):
         print(f'] {25 - self.time_left} / 25')
 
     def start(self):
-        os.system('cls')
+        os.system('clear')
         self.current_item = input("\n\n\n          Enter a short title of the work: ")
         LOGGER.info("start: " + self.current_item)
 
@@ -65,7 +65,7 @@ class Pomodoro(object):
         else:
             break_time = 5
 
-        os.system('cls')
+        os.system('clear')
         print("\n\n\n          Taking a break for " + str(break_time) + " minutes")
 
         LOGGER.info("Taking a break for " + str(break_time) + " minutes")
