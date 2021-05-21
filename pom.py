@@ -1,11 +1,17 @@
+"""
+Simple command line tool for pomodoro
+"""
+
 import time
 import os
-import sys
 import logging
 
-logger = logging.getLogger('pomodoro')
+LOGGER = logging.getLogger('pomodoro')
 
 class Pomodoro(object):
+    """
+    Class impleme
+    """
     def __init__(self, timeout):
         self._init_logger()
         self.timeout = timeout
@@ -14,7 +20,7 @@ class Pomodoro(object):
         self.items_done = 0
 
     def _init_logger(self):
-        logger.setLevel(logging.INFO)
+        LOGGER.setLevel(logging.INFO)
 
         logfile_name = 'pomodoro.log'
 
@@ -23,7 +29,7 @@ class Pomodoro(object):
         fh.setFormatter(formatter)
         fh.setLevel(logging.DEBUG)
 
-        logger.addHandler(fh)
+        LOGGER.addHandler(fh)
 
     def _display_status(self):
         os.system('cls')
@@ -36,7 +42,7 @@ class Pomodoro(object):
     def start(self):
         os.system('cls')
         self.current_item = input("\n\n\n          Enter a short title of the work: ")
-        logger.info("start: " + self.current_item)
+        LOGGER.info("start: " + self.current_item)
 
         self.time_left = self.timeout
 
@@ -48,8 +54,8 @@ class Pomodoro(object):
 
         print("\n\n\n          Well done!! Now go and get a reward!! ")
 
-        logger.info("  end: " + self.current_item)
-        logger.info(" ")
+        LOGGER.info("  end: " + self.current_item)
+        LOGGER.info(" ")
 
         self.items_done += 1
 
@@ -62,9 +68,9 @@ class Pomodoro(object):
         os.system('cls')
         print("\n\n\n          Taking a break for " + str(break_time) + " minutes")
 
-        logger.info("Taking a break for " + str(break_time) + " minutes")
+        LOGGER.info("Taking a break for " + str(break_time) + " minutes")
         time.sleep(break_time * 60)
-        logger.info("Done with the break :)")
+        LOGGER.info("Done with the break :)")
 
 
 if __name__ == '__main__':
